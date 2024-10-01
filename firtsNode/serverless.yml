@@ -1,0 +1,18 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: eamelective
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: firtsNode
+plugins:
+  - serverless-offline 
+
+provider:
+  name: aws
+  runtime: python3.12
+
+functions:
+  holaMundo:
+    handler: handler.hello
+    events:
+      - http:
+          path: /
+          method: get
